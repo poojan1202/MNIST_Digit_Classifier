@@ -43,8 +43,11 @@ Various Parameters set while training the model
 
 #### 4-Layered Model
 
+
 - Cost-Function
+
 ![](https://i.imgur.com/Z1lFGQd.png)
+
 - Cost after 1000 epochs: 5.317678221962305e-08
 
 - BatchWise Accuracy
@@ -121,6 +124,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 #### 4-Layered Model
 
 - Cost-Function and Batch-wise Accuracy
+
 ![](https://i.imgur.com/MKvyVCl.png)
 
 - Cost after 5 epochs: 0.0075
