@@ -17,11 +17,9 @@ These files are already present in the repository, but can still be downloaded f
     
 
 ## 1. Artificial Neural Network
-Performed with two different models
-- 3-Layered Model
-    - layers_dims = 
+
 - 4-Layered Model
-    - 4 layers, with 300,100,30 and 10 nodes in it
+    - 4 layers, with 300, 100, 30 and 10 nodes in it
     - layers_dims = [784,300,100,30,10]
 
 Various Parameters set while training the model
@@ -43,11 +41,15 @@ Various Parameters set while training the model
 
 ### Results
 
-#### 3-Layered Model
+#### 4-Layered Model
+
 - Cost-Function
 ![](https://i.imgur.com/Z1lFGQd.png)
 - Cost after 1000 epochs: 5.317678221962305e-08
+
 - BatchWise Accuracy
+
+
 ![](https://i.imgur.com/twFRBPb.png)
 
 - Accuracy of Trained Model on Training Dataset : **1.0**
@@ -58,22 +60,84 @@ Trained model can be found inside Results folder
 a_file = open('Results/ANN_4/parameters.pkl','rb')
 parameters = pk.load(a_file)
 ```
-Run above block of code to test on the already trained model
+Run above lines of code to test on the already trained model
 
-#### 4-Layered Model
-- Cost-Function
-- BatchWise Accuracy
-- Accuracy of Trained Model on Training Dataset : ****
-- Accuracy of Trained Model on Test Dataset : ****
 
 
 
 
 ## 2. Convolution Neural Network
 
+- 2-Conv-Layered Model
+    - Layer-1
+        - Convolution Layer
+             | Parameter | Value |
+            | -------- | -------- |
+            | Input Dim     | 1     |
+            | Output Dim | 32|
+            | Kernel Size | 5|
+            | Stride | 1|
+            | Padding | 0 |
+        - Pooling Layer
+            | Parameter | Value |
+            | -------- | -------- |
+            | Kernel Size     | 2     |
+            | Stride | 2|
+    - Layer-2
+        - Convolution Layer
+             | Parameter | Value |
+            | -------- | -------- |
+            | Input Dim     | 32     |
+            | Output Dim | 64|
+            | Kernel Size | 5|
+            | Stride | 1|
+            | Padding | 0 |
+        - Pooling Layer
+            | Parameter | Value |
+            | -------- | -------- |
+            | Kernel Size     | 2     |
+            | Stride | 2|
+Various Parameters set while training the model
+
+
+| Parameter | Value |
+| -------- | -------- |
+| learning rate     | 0.001     |
+| epochs | 5|
+| Mini batch size | 100|
+
+#### Activation Functions
+- All hidden layers are applied with **Relu** Activation Function
+    - $A = max(Z,0)$
+
+#### Optimizer
+- Adam Optimizer
+```python=
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+```
+
+### Results
+
+#### 4-Layered Model
+
+- Cost-Function and Batch-wise Accuracy
+![](https://i.imgur.com/MKvyVCl.png)
+
+- Cost after 5 epochs: 0.0075
+
+- Accuracy of Trained Model on Training Dataset : **0.9957**
+- Accuracy of Trained Model on Test Dataset : **0.9943**
+
+Trained model can be found inside Results folder
+```python=
+a_file = open('Results/CNN/conv_net_model.ckpt','rb')
+parameters = pk.load(a_file)
+```
+Run above lines of code to test on the already trained model
 ## Dependencies
 
 - idx2numpy
 - numpy
+- pytorch
 - matplotlib
 - pickle
