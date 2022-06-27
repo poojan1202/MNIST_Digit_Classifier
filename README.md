@@ -131,7 +131,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 Trained model can be found inside Results folder
 ```python=
 a_file = open('Results/CNN/conv_net_model.ckpt','rb')
-parameters = pk.load(a_file)
+model = torch.load(a_file)
 ```
 Run above lines of code to test on the already trained model
 ## Dependencies
